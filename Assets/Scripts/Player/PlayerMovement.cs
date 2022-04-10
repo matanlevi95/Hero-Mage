@@ -36,7 +36,6 @@ public class PlayerMovement : MonoBehaviour
         {
             //Move
             rb.AddForce(direction * stats.speed);
-            rb.velocity = new Vector3(1, 0, 0);
             Vector3 lookAtPosition = transform.position + direction;
             transform.LookAt(lookAtPosition);
             animator.SetBool("walking", true);
