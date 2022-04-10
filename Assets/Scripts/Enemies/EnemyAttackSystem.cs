@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyAttackSystem : MonoBehaviour
 {
 
-    Animator animator;
+    Animator animator; 
     CharacterStats stats;
     Transform target;
     float delayTimer;
