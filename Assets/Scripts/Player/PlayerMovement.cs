@@ -13,6 +13,9 @@ public class PlayerMovement : MonoBehaviour
     Animator animator;
     FixedJoystick joystick;
 
+    float moveX;
+    float moveY;
+
     void Start()
     {
         stats = GetComponent<CharacterStats>();
@@ -22,6 +25,12 @@ public class PlayerMovement : MonoBehaviour
         SetJoysticks();
     }
 
+    private void Update()
+    {
+        moveX = joystick.Horizontal;
+        moveY = joystick.Vertical;
+    }
+
     void FixedUpdate()
     {
         Move();
@@ -29,21 +38,19 @@ public class PlayerMovement : MonoBehaviour
 
     void Move()
     {
-        float moveX = joystick.Horizontal;
-        float moveY = joystick.Vertical;
+
         Vector3 direction = new Vector3(moveX, 0, moveY).normalized;
         if (direction != Vector3.zero)
         {
             //Move
-            rb.AddForce(direction * stats.speed);
+            rb.velocity = direction * stats.speed;
+            //rb.AddForce(direction * stats.speed);
             Vector3 lookAtPosition = transform.position + direction;
             transform.LookAt(lookAtPosition);
             animator.SetBool("walking", true);
         }
-        else
-        {
-            animator.SetBool("walking", false);
-        }
+        else animator.SetBool("walking", false);
+
     }
 
     void SetJoysticks()
