@@ -2,20 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class HealthSystem : MonoBehaviour
 {
     [SerializeField] Image healthBar;
+    [SerializeField] TextMeshProUGUI healthText;
     CharacterStats stats;
     Animator animator;
     float delayTimer;
     [HideInInspector] public bool isDead;
+    ToggleHealthBar toggleHealthBar;
 
     void Start()
     {
         stats = GetComponent<CharacterStats>();
         animator = GetComponent<Animator>();
-        ResetDelay();
+        toggleHealthBar = GetComponent<ToggleHealthBar>();
     }
 
     private void Update()
@@ -52,10 +55,18 @@ public class HealthSystem : MonoBehaviour
 
     void UpdateHealthBarIfExist()
     {
+        //Image;
         if (healthBar)
         {
+            if (toggleHealthBar) toggleHealthBar.ShowHealthBar();
             float fillAmount = (float)stats.currentHealth / stats.maxHealth;
             healthBar.fillAmount = fillAmount;
+
+        }
+        //Text;
+        if (healthText)
+        {
+            healthText.text = $"{stats.currentHealth}/{stats.maxHealth}";
         }
     }
 

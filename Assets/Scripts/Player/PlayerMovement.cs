@@ -8,7 +8,6 @@ public class PlayerMovement : MonoBehaviour
 
     //References
     Rigidbody rb;
-    BoxCollider boxCollider;
     CharacterStats stats;
     Animator animator;
     FixedJoystick joystick;
@@ -19,7 +18,6 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         stats = GetComponent<CharacterStats>();
-        boxCollider = GetComponent<BoxCollider>();
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
         SetJoysticks();
