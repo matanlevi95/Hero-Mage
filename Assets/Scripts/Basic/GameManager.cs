@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [HideInInspector] int numberOfEnemiesInLevel;
-   public List<GameObject> enemies;
+    public List<GameObject> enemies;
     Animator gateAnimator;
     // Start is called before the first frame update
     void Start()
