@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,7 +23,6 @@ public class PlayerAttack : MonoBehaviour
         gameManager = FindObjectOfType<GameManager>();
         bulletStartPosition = GameObject.FindGameObjectWithTag("PlayerBulletSpawnPosition");
         bulletsContainer = GameObject.FindGameObjectWithTag("BulletsContainer");
-
         ResetTimer();
     }
 
@@ -33,8 +31,9 @@ public class PlayerAttack : MonoBehaviour
     {
         delayTimer -= Time.deltaTime;
         if (delayTimer < 0) StartAttack();
-
     }
+
+  
 
     void StartAttack()
     {
