@@ -26,8 +26,7 @@ public class PlayerAttack : MonoBehaviour
         ResetTimer();
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         delayTimer -= Time.deltaTime;
         if (delayTimer < 0) StartAttack();

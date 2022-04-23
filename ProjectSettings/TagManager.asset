@@ -12,6 +12,8 @@ TagManager:
   - BulletsContainer
   - Enviroment
   - Floor
+  - SkillsSelection
+  - GameManager
   layers:
   - Default
   - TransparentFX

@@ -6,7 +6,7 @@ public class CharacterStats : MonoBehaviour
 {
     [Header("health")]
     public int maxHealth = 100;
-    public int currentHealth;
+    [HideInInspector] public int currentHealth;
     public float delayBetweenHurts = 1.5f;
 
     [Header("Attack")]
@@ -21,9 +21,13 @@ public class CharacterStats : MonoBehaviour
     public bool needToBeAtDistanceFromTargetForMoving = false;
     public float minDistanceFromTargetForMoving = 10;
 
+    [Header("Skills")]
+    [HideInInspector] public List<Transform> spellsAbillities;
+
     private void Awake()
     {
         currentHealth = maxHealth;
+        spellsAbillities = new List<Transform>();
     }
 
 }

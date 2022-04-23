@@ -4835,7 +4835,7 @@ GameObject:
   - component: {fileID: 4709783269331671036}
   - component: {fileID: 4869228880385438660}
   - component: {fileID: 4868447723120070170}
-  - component: {fileID: 4707296424395655655}
+  - component: {fileID: 1438183048908038718}
   m_Layer: 0
   m_Name: FireBall
   m_TagString: Untagged
@@ -9653,7 +9653,7 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &4707296424395655655
+--- !u!114 &1438183048908038718
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9662,7 +9662,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4707822929063267824}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32bab9e56f946a4438554ca8db25c2e7, type: 3}
+  m_Script: {fileID: 11500000, guid: d350a18514564134186c59126cff0212, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 1000

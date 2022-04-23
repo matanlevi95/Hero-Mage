@@ -5,9 +5,10 @@ using UnityEngine;
 public class SubBulletRotation : MonoBehaviour
 {
     [SerializeField] float rotationSpeed;
-    [SerializeField] Transform target;
-    void Update()
+    public Transform target;
+
+    void FixedUpdate()
     {
-        transform.RotateAround(target.position, new Vector3(0,1,1), rotationSpeed * Time.deltaTime);    
+        transform.RotateAround(target.position, new Vector3(1,1,1), rotationSpeed * Time.deltaTime);    
     }
 }

@@ -168,6 +168,7 @@ GameObject:
   - component: {fileID: 6438217572406147038}
   - component: {fileID: 6438217572406147037}
   - component: {fileID: 6438217572406147036}
+  - component: {fileID: -4405129458377370422}
   m_Layer: 5
   m_Name: IceEffect
   m_TagString: Untagged
@@ -278,4 +279,29 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6438217572406147037}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -4405129458377370422}
+        m_TargetAssemblyTypeName: IceBolt, Assembly-CSharp
+        m_MethodName: ChooseSkill
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &-4405129458377370422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6438217572406147034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dcc123f4e276664da34f13cd434a529, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  iceBolt: {fileID: 8427160328529589840, guid: 7b9e0027d5195f949a6580d0c279c915, type: 3}

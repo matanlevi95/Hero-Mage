@@ -2,13 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChooseSkill : MonoBehaviour
+public class SkillSelection : MonoBehaviour
 {
     [SerializeField] List<GameObject> skills;
 
     private void OnEnable()
     {
-        Debug.Log("enable");
         List<GameObject> skillsToShow = GetThreeRandomSkills();
         foreach (var skill in skillsToShow)
         {
@@ -18,7 +17,6 @@ public class ChooseSkill : MonoBehaviour
 
     private void OnDisable()
     {
-        Debug.Log("disable");
         foreach (Transform child in transform)
         {
             Destroy(child.gameObject);

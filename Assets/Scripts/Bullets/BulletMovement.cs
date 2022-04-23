@@ -13,7 +13,7 @@ public class BulletMovement : MonoBehaviour
     // Start is called before the first frame update
 
 
-    void Update()
+    void FixedUpdate()
     {
         transform.LookAt(target);
         transform.position += transform.forward * Time.deltaTime * bulletSpeed;
