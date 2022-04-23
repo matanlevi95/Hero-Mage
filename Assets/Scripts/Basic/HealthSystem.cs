@@ -53,7 +53,7 @@ public class HealthSystem : MonoBehaviour
         UpdateHealthBarIfExist();
     }
 
-    void UpdateHealthBarIfExist()
+    public void UpdateHealthBarIfExist()
     {
         //Image;
         if (healthBar)
