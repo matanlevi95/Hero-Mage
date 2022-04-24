@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class PlayerAttack : MonoBehaviour
 {
@@ -15,7 +17,6 @@ public class PlayerAttack : MonoBehaviour
     float delayTimer;
     Transform nearestEnemy;
 
-    // Start is called before the first frame update
     void Start()
     {
         stats = GetComponent<CharacterStats>();
@@ -37,7 +38,6 @@ public class PlayerAttack : MonoBehaviour
     void StartAttack()
     {
         nearestEnemy = FindTheNearestEnemy();
-
         if (nearestEnemy && !animator.GetBool("walking"))
         {
             if (!nearestEnemy.GetComponent<HealthSystem>().isDead)
@@ -45,15 +45,18 @@ public class PlayerAttack : MonoBehaviour
                 transform.LookAt(nearestEnemy);
                 animator.SetTrigger("attacking");
             }
+            else
+            {
+                animator.ResetTrigger("attacking");
+            }
         }
-
     }
 
     public void Attack()
     {
-        Transform newBuller = Instantiate(bullet, bulletStartPosition.transform.position, Quaternion.identity, bulletsContainer.transform);
-        newBuller.GetComponent<BulletMovement>().SetData(nearestEnemy, stats.minDamage, stats.maxDamage);
-        ResetTimer();
+            Transform newBuller = Instantiate(bullet, bulletStartPosition.transform.position, Quaternion.identity, bulletsContainer.transform);
+            newBuller.GetComponent<BulletMovement>().SetData(nearestEnemy, stats.minDamage, stats.maxDamage);
+            ResetTimer();
     }
 
 
@@ -79,5 +82,8 @@ public class PlayerAttack : MonoBehaviour
         return nearestEnemy.transform;
     }
 
-
+    private void OnDestroy()
+    {
+        SceneManager.LoadScene(0);
+    }
 }

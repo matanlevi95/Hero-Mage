@@ -9,14 +9,14 @@ public class EnemyMovement : MonoBehaviour
     CharacterStats stats;
     Transform target;
     NavMeshAgent navMeshAgent;
-    GameManager gameManager;
+    HealthSystem healthSystem;
     void Start()
     {
         animator = GetComponent<Animator>();
         stats = GetComponent<CharacterStats>();
         target = GameObject.FindGameObjectWithTag("Player").transform;
         navMeshAgent = GetComponent<NavMeshAgent>();
-        gameManager = FindObjectOfType<GameManager>();
+        healthSystem = GetComponent<HealthSystem>();
     }
 
     private void Update()
@@ -40,6 +40,7 @@ public class EnemyMovement : MonoBehaviour
 
     bool CheckIfNeedToMove()
     {
+        if (healthSystem.isDead) return false;
         if (stats.needToBeAtDistanceFromTargetForMoving)
         {
             float distanceFromTarget = Vector3.Distance(transform.position, target.position);
@@ -52,10 +53,7 @@ public class EnemyMovement : MonoBehaviour
         return true;
     }
 
-    private void OnDestroy()
-    {
-        gameManager.RemoveEnemy(gameObject);
-    }
+    
 
 
 }

@@ -10,7 +10,6 @@ public class CharacterStats : MonoBehaviour
     public int requiredXp = 0;
     public int currentXp = 0;
 
-
     [Header("health")]
     public int maxHealth = 100;
     [HideInInspector] public int currentHealth;
@@ -30,7 +29,7 @@ public class CharacterStats : MonoBehaviour
     public float minDistanceFromTargetForMoving = 10;
 
     [Header("Skills")]
-    [HideInInspector] public List<Transform> spellsAbillities;
+    [HideInInspector] public List<Transform> spellsAbillities = new List<Transform>();
 
     private void Awake()
     {
@@ -40,18 +39,20 @@ public class CharacterStats : MonoBehaviour
             requiredXp = PlayerStats.requiredXp;
             currentXp = PlayerStats.currentXp;
             maxHealth = PlayerStats.maxHealth;
-            currentHealth = PlayerStats.currentHealth;
+            currentHealth = PlayerStats.maxHealth;
             delayBetweenHurts = PlayerStats.delayBetweenHurts;
             minDamage = PlayerStats.minDamage;
             maxDamage = PlayerStats.maxDamage;
             delayBetweenAttacks = PlayerStats.delayBetweenAttacks;
             speed = PlayerStats.speed;
             spellsAbillities = PlayerStats.spellsAbillities;
+            if (spellsAbillities.Count < 1) spellsAbillities = new List<Transform>();
         }
         else
         {
             currentHealth = maxHealth;
         }
+        
 
     }
 
@@ -69,6 +70,7 @@ public class CharacterStats : MonoBehaviour
             PlayerStats.maxDamage = maxDamage;
             PlayerStats.delayBetweenAttacks = delayBetweenAttacks;
             PlayerStats.speed = speed;
+            PlayerStats.spellsAbillities = spellsAbillities;
         }
     }
 }
@@ -82,8 +84,8 @@ public static class PlayerStats
     public static int currentHealth;
     public static int minDamage = 10;
     public static int maxDamage = 15;
-    public static float delayBetweenAttacks = 1.5f;
+    public static float delayBetweenAttacks = 0.1f;
     public static float delayBetweenHurts = 1.5f;
-    public static float speed = 10f;
-    public static List<Transform> spellsAbillities;
+    public static float speed = 30f;
+    public static List<Transform> spellsAbillities = new List<Transform>();
 }

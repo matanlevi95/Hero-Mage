@@ -73,5 +73,6 @@ public class GameManager : MonoBehaviour
     public void HideSkillSelection()
     {
         skillsSelection.SetActive(false);
+
     }
 }

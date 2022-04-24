@@ -13,12 +13,14 @@ public class HealthSystem : MonoBehaviour
     float delayTimer;
     [HideInInspector] public bool isDead;
     ToggleHealthBar toggleHealthBar;
+    GameManager gameManager;
 
     void Start()
     {
         stats = GetComponent<CharacterStats>();
         animator = GetComponent<Animator>();
         toggleHealthBar = GetComponent<ToggleHealthBar>();
+        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
     }
 
     private void Update()
@@ -39,6 +41,7 @@ public class HealthSystem : MonoBehaviour
     public void RestoreDamage(int restoreAmount)
     {
         stats.currentHealth += restoreAmount;
+
         if (stats.currentHealth > stats.maxHealth)
         {
             stats.currentHealth = stats.maxHealth;
@@ -74,6 +77,12 @@ public class HealthSystem : MonoBehaviour
     void HandleDeath()
     {
         isDead = true;
+        if (tag == "Enemy")
+        {
+            DropFromEnemy dropFromEnemy = GetComponent<DropFromEnemy>();
+            if (dropFromEnemy) dropFromEnemy.DropLoot();
+            gameManager.RemoveEnemy(gameObject);
+        }
         if (animator)
         {
             animator.SetTrigger("die");
@@ -83,8 +92,7 @@ public class HealthSystem : MonoBehaviour
 
     public void AfterDeathAnimation()
     {
-        DropFromEnemy dropFromEnemy = GetComponent<DropFromEnemy>();
-        if (dropFromEnemy) dropFromEnemy.DropLoot();
+        
         Destroy(gameObject);
     }
 
