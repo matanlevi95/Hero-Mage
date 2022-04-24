@@ -12316,7 +12316,7 @@ GameObject:
   - component: {fileID: 739010130}
   - component: {fileID: 739010129}
   m_Layer: 0
-  m_Name: HealthBackground
+  m_Name: xpBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12363,11 +12363,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: e1af3a061e4fe9d439ab5c47d668a702, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
+  m_FillMethod: 0
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -21154,6 +21154,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd7fa14cadb80f14994f6c368044c61f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  level: 1
+  requiredXp: 0
+  currentXp: 0
   maxHealth: 100
   currentHealth: 0
   delayBetweenHurts: 1.5
@@ -21179,6 +21182,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 7185815601719217680, guid: e1c7c13f79cab7446828b644d8102d02, type: 3}
+--- !u!114 &1179330383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1179330361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e043c881d8241748a8b0fa842aca719, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xpBar: {fileID: 739010129}
+  levelText: {fileID: 2017565174}
+  xpText: {fileID: 1990136625}
+  additionMultiplier: 300
+  powerMultiplier: 2
+  divisionMultiplier: 7
 --- !u!1001 &1179427028
 PrefabInstance:
   m_ObjectHideFlags: 0

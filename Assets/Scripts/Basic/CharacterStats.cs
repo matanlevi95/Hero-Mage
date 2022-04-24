@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class CharacterStats : MonoBehaviour
 {
+    [Header("Level")]
+    public int level = 1;
+    public int requiredXp = 0;
+    public int currentXp = 0;
+
+
     [Header("health")]
     public int maxHealth = 100;
     [HideInInspector] public int currentHealth;
