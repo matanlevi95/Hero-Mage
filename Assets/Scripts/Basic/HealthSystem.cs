@@ -31,15 +31,8 @@ public class HealthSystem : MonoBehaviour
     {
         if (delayTimer > 0 || isDead) return;
         stats.currentHealth -= damageAmount;
-        if (stats.currentHealth <= 0)
-        {
-            isDead = true;
-            HandleDeath();
-        }
-        else
-        {
-            HandleHurt();
-        }
+        if (stats.currentHealth <= 0) HandleDeath();
+        else HandleHurt();
         UpdateHealthBarIfExist();
     }
 
@@ -80,12 +73,19 @@ public class HealthSystem : MonoBehaviour
 
     void HandleDeath()
     {
+        isDead = true;
         if (animator)
         {
             animator.SetTrigger("die");
             stats.currentHealth = 0;
-            Destroy(gameObject, 2);
         }
+    }
+
+    public void AfterDeathAnimation()
+    {
+        DropFromEnemy dropFromEnemy = GetComponent<DropFromEnemy>();
+        if (dropFromEnemy) dropFromEnemy.DropLoot();
+        Destroy(gameObject);
     }
 
     void ResetDelay()

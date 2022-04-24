@@ -31,15 +31,6 @@ public class PlayerExperience : MonoBehaviour
         UpdateXpUI();
 
     }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            GainExperienceFlatRate(15);
-        }
-    }
-
     public void UpdateXpUI()
     {
         xpBar.fillAmount = (float)playerStats.currentXp / playerStats.requiredXp;

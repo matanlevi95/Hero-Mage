@@ -1,14 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
+[Serializable]
+public struct CoinsPrefabs
+{
+    public int min;
+    public int max;
+    public Transform coinPrefab;
+}
 public class GameManager : MonoBehaviour
 {
-    public List<GameObject> enemies;
     Animator gateAnimator;
+
+    [Header("Enemies")]
+    public List<GameObject> enemies;
+    [Header("Skills")]
     [SerializeField] GameObject skillsSelection;
     public List<Transform> subSpells;
     // Start is called before the first frame update
+    [Header("Coin")]
+    public CoinsPrefabs[] coinsTypes;
+
+
     void Start()
     {
         GameObject gate = GameObject.FindGameObjectWithTag("Gate");
@@ -22,12 +37,32 @@ public class GameManager : MonoBehaviour
     public void RemoveEnemy(GameObject enemy)
     {
         if (enemies.Contains(enemy)) enemies.Remove(enemy);
-        if (enemies.Count <= 0 && gateAnimator) gateAnimator.SetTrigger("open");
+        if (enemies.Count <= 0 && gateAnimator) HandleEndStage();
     }
 
     public void AddEnemy(GameObject enemy)
     {
         enemies.Add(enemy);
+    }
+
+    void HandleEndStage()
+    {
+        OpenGate();
+        MoveAllCoinsToPlayer();
+    }
+
+    void OpenGate()
+    {
+        gateAnimator.SetTrigger("open");
+    }
+
+    void MoveAllCoinsToPlayer()
+    {
+        Coin[] coins = FindObjectsOfType<Coin>();
+        foreach (var coin in coins)
+        {
+            coin.move = true;
+        }
     }
 
     public void ShowSkillSelection()

@@ -14,6 +14,7 @@ TagManager:
   - Floor
   - SkillsSelection
   - GameManager
+  - CoinsContainer
   layers:
   - Default
   - TransparentFX

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class CharacterStats : MonoBehaviour
 {
     [Header("Level")]
@@ -14,6 +15,7 @@ public class CharacterStats : MonoBehaviour
     public int maxHealth = 100;
     [HideInInspector] public int currentHealth;
     public float delayBetweenHurts = 1.5f;
+
 
     [Header("Attack")]
     public int minDamage = 10;
@@ -32,8 +34,56 @@ public class CharacterStats : MonoBehaviour
 
     private void Awake()
     {
-        currentHealth = maxHealth;
-        spellsAbillities = new List<Transform>();
+        if (tag == "Player")
+        {
+            level = PlayerStats.level;
+            requiredXp = PlayerStats.requiredXp;
+            currentXp = PlayerStats.currentXp;
+            maxHealth = PlayerStats.maxHealth;
+            currentHealth = PlayerStats.currentHealth;
+            delayBetweenHurts = PlayerStats.delayBetweenHurts;
+            minDamage = PlayerStats.minDamage;
+            maxDamage = PlayerStats.maxDamage;
+            delayBetweenAttacks = PlayerStats.delayBetweenAttacks;
+            speed = PlayerStats.speed;
+            spellsAbillities = PlayerStats.spellsAbillities;
+        }
+        else
+        {
+            currentHealth = maxHealth;
+        }
+
     }
 
+    private void OnDestroy()
+    {
+        if (tag == "Player")
+        {
+            PlayerStats.level = level;
+            PlayerStats.requiredXp = requiredXp;
+            PlayerStats.currentXp = currentXp;
+            PlayerStats.maxHealth = maxHealth;
+            PlayerStats.currentHealth = currentHealth;
+            PlayerStats.delayBetweenHurts = delayBetweenHurts;
+            PlayerStats.minDamage = minDamage;
+            PlayerStats.maxDamage = maxDamage;
+            PlayerStats.delayBetweenAttacks = delayBetweenAttacks;
+            PlayerStats.speed = speed;
+        }
+    }
+}
+
+public static class PlayerStats
+{
+    public static int level = 1;
+    public static int requiredXp = 0;
+    public static int currentXp = 0;
+    public static int maxHealth = 100;
+    public static int currentHealth;
+    public static int minDamage = 10;
+    public static int maxDamage = 15;
+    public static float delayBetweenAttacks = 1.5f;
+    public static float delayBetweenHurts = 1.5f;
+    public static float speed = 10f;
+    public static List<Transform> spellsAbillities;
 }
