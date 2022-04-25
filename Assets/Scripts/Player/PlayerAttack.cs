@@ -54,9 +54,12 @@ public class PlayerAttack : MonoBehaviour
 
     public void Attack()
     {
+        if (nearestEnemy && !animator.GetBool("walking"))
+        {
             Transform newBuller = Instantiate(bullet, bulletStartPosition.transform.position, Quaternion.identity, bulletsContainer.transform);
             newBuller.GetComponent<BulletMovement>().SetData(nearestEnemy, stats.minDamage, stats.maxDamage);
             ResetTimer();
+        }        
     }
 
 
