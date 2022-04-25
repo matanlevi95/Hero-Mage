@@ -14748,7 +14748,7 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 9c0c9d13e597491469fbc46083c28afe, type: 2}
     - target: {fileID: 136306802490482818, guid: ccd8c3b89aa02e943a08ab9238a8a70c, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 136306802490482818, guid: ccd8c3b89aa02e943a08ab9238a8a70c, type: 3}
       propertyPath: m_Direction
@@ -21202,7 +21202,7 @@ MonoBehaviour:
   needToBeAtDistanceFromTargetForAttacking: 0
   minDistanceFromTargetForAttacking: 0
   delayBetweenAttacks: 0.1
-  speed: 15
+  speed: 1530
   needToBeAtDistanceFromTargetForMoving: 0
   minDistanceFromTargetForMoving: 10
   spellsAbillities: []
@@ -21237,6 +21237,19 @@ MonoBehaviour:
   additionMultiplier: 300
   powerMultiplier: 2
   divisionMultiplier: 7
+--- !u!65 &1179330388
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1179330361}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.50832844, y: 1.8189262, z: 0.8096514}
+  m_Center: {x: 0.015713394, y: 0.91482526, z: 0.07391834}
 --- !u!1001 &1179427028
 PrefabInstance:
   m_ObjectHideFlags: 0

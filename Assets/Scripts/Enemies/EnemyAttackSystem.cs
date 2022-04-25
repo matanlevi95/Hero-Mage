@@ -10,6 +10,8 @@ public class EnemyAttackSystem : MonoBehaviour
     Transform target;
     float delayTimer;
 
+    HealthSystem healthSystem;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,12 +19,13 @@ public class EnemyAttackSystem : MonoBehaviour
         stats = GetComponent<CharacterStats>();
         target = GameObject.FindGameObjectWithTag("Player").transform;
         ResetTimer();
+        healthSystem = GetComponent<HealthSystem>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!target) return;
+        if (!target || healthSystem.isDead) return;
         delayTimer -= Time.deltaTime;
         if (delayTimer < 0)
         {
