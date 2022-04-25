@@ -9,6 +9,7 @@ public class Coin : MonoBehaviour
     Transform target;
     PlayerExperience playerExperience;
     [HideInInspector] public bool move;
+    [SerializeField] float coinSpinSpeed;
 
     private void Start()
     {
@@ -20,6 +21,7 @@ public class Coin : MonoBehaviour
     void Update()
     {
         if (move) Move();
+        transform.Rotate(Vector3.up * coinSpinSpeed * Time.deltaTime);
     }
 
     void Move()
