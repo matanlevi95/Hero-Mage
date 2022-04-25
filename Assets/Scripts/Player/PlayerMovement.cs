@@ -36,7 +36,6 @@ public class PlayerMovement : MonoBehaviour
 
     void Move()
     {
-
         Vector3 direction = new Vector3(moveX, 0, moveY).normalized;
         if (direction != Vector3.zero)
         {
@@ -48,9 +47,7 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("walking", true);
         }
         else animator.SetBool("walking", false);
-
     }
-
     void SetJoysticks()
     {
         joystick = GameObject.FindGameObjectWithTag("Joystick").GetComponent<FixedJoystick>();

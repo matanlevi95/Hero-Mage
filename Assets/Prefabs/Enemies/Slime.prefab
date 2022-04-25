@@ -433,6 +433,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd7fa14cadb80f14994f6c368044c61f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  level: 1
+  requiredXp: 0
+  currentXp: 0
   maxHealth: 45
   currentHealth: 0
   delayBetweenHurts: 1.5
@@ -444,6 +447,7 @@ MonoBehaviour:
   speed: 3
   needToBeAtDistanceFromTargetForMoving: 1
   minDistanceFromTargetForMoving: 10
+  spellsAbillities: []
 --- !u!114 &3792077352721282968
 MonoBehaviour:
   m_ObjectHideFlags: 0
