@@ -86,6 +86,6 @@ public static class PlayerStats
     public static int maxDamage = 15;
     public static float delayBetweenAttacks = 0.1f;
     public static float delayBetweenHurts = 1.5f;
-    public static float speed = 30f;
+    public static float speed = 15f;
     public static List<Transform> spellsAbillities = new List<Transform>();
 }

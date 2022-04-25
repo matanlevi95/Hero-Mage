@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.2808527, g: 0.3660275, b: 0.4983291, a: 1}
+  m_IndirectSpecularColor: {r: 0.28085268, g: 0.3660276, b: 0.49833205, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -11937,7 +11937,7 @@ BoxCollider:
   m_GameObject: {fileID: 727301824}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 21.008247, y: 1.5846219, z: 57.317303}
   m_Center: {x: 0.052246094, y: 0.29231083, z: 7.8545437}
@@ -21202,7 +21202,7 @@ MonoBehaviour:
   needToBeAtDistanceFromTargetForAttacking: 0
   minDistanceFromTargetForAttacking: 0
   delayBetweenAttacks: 0.1
-  speed: 30
+  speed: 15
   needToBeAtDistanceFromTargetForMoving: 0
   minDistanceFromTargetForMoving: 10
   spellsAbillities: []
